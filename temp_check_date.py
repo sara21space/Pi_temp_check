@@ -48,7 +48,7 @@ def get_temp_celsius():
     """
     Runs 'vcgencmd measure_temp' and returns the numeric Celsius value as a float.
     """
-    raw = os.popen("vcgencmd measure_temp").read().strip()
+    raw = os.popen("sudo vcgencmd measure_temp").read().strip()
     if raw.startswith("temp=") and raw.endswith("'C"):
         return float(raw.replace("temp=", "").replace("'C", ""))
     else:
